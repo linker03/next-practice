@@ -1,0 +1,13 @@
+:root {
+  --primary-white: #ffffff;
+  --primary-pink: #d0826c;
+  --primary-dark-green: #2f5d50;
+  --primary-dark-gray: #333333;
+
+  --secondary-light-pink: #ddbdb2;
+  --secondary-lighter-pink: #f8f2f0;
+  --secondary-light-gray: #eeeeee;
+  --secondary-lighter-gray: #eef2f1;
+  --secondary-darker-gray: #282a2d;
+  --secondary-dark-gray: #34383d;
+}
