@@ -1,12 +1,11 @@
-import { Footer } from 'src/components/footer';
-import { Header } from 'src/components/header';
-import { MobileHeader } from 'src/components/header/components';
+import Link from 'next/link';
 
 const Home = () => {
   return (
     <>
-      <Header />
-      <Footer />
+      <Link href="/search-results">
+        <a>Search results</a>
+      </Link>
     </>
   );
 };
