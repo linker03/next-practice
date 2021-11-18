@@ -71,7 +71,7 @@ const LinksContainer = styled.div`
   align-items: center;
   padding: 70px 60px;
 
-  @media ${devices.tablet()} {
+  @media ${devices.tabletM()} {
     flex-direction: column;
   }
 `;
@@ -80,7 +80,7 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
 
-  @media ${devices.tablet()} {
+  @media ${devices.tabletM()} {
     margin-bottom: 40px;
   }
 `;
@@ -95,7 +95,7 @@ const SocialsContainer = styled.ul`
   gap: 28px;
   list-style: none;
 
-  @media ${devices.tablet()} {
+  @media ${devices.tabletM()} {
     order: 2;
   }
 `;
@@ -122,7 +122,7 @@ const PoliciesContainer = styled.ul`
     flex-direction: column;
   }
 
-  @media ${devices.tablet()} {
+  @media ${devices.tabletM()} {
     order: 1;
     margin-bottom: 40px;
   }
