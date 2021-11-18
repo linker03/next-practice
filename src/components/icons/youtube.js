@@ -1,4 +1,4 @@
-const Youtube = () => {
+const Youtube = ({ className }) => {
   return (
     <svg
       width="32"
@@ -6,6 +6,7 @@ const Youtube = () => {
       viewBox="0 0 32 32"
       fill="inherit"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <g clipPath="url(#clip0_609_1146)">
         <path

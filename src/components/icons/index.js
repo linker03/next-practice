@@ -4,3 +4,7 @@ export { default as Facebook } from './facebook';
 export { default as Chat } from './chat';
 export { default as Localization } from './localization';
 export { default as Search } from './search';
+export { default as BurgerIcon } from './burger-icon';
+export { default as HomeIcon } from './home-icon';
+export { default as CloseIcon } from './close-icon';
+export { default as ArrowRight } from './arrow-right';
