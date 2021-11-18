@@ -187,6 +187,7 @@ const MenuContainer = styled.ul`
   position: absolute;
   top: 100%;
   left: 0;
+  z-index: 2;
 
   visibility: hidden;
   opacity: 0;
