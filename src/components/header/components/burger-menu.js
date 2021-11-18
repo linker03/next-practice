@@ -97,13 +97,16 @@ const BurgerMenu = ({ open, close }) => {
 
 const Container = styled.nav`
   background-color: var(--primary-pink);
+  color: var(-primary-dark-gray);
   margin-left: ${({ open }) => (open ? '0' : '-1000px')};
+
   width: 280px;
-  height: 100vh;
+  min-height: 100vh;
+
   position: absolute;
   top: 0;
   left: 0;
-  color: var(-primary-dark-gray);
+  z-index: 2;
 
   transition: margin 0.3s ease-in-out;
 `;

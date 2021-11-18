@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { BurgerIcon } from 'src/components/icons';
 import { Chat, Search } from 'src/components/icons';
 import BurgerMenu from './burger-menu';
+import { devices } from 'src/styles/devices';
 
 const MobileHeader = () => {
   const [burgerOpen, setBurgerOpen] = useState(false);
@@ -43,6 +44,10 @@ const Container = styled.header`
   display: flex;
   padding: 20px;
   position: relative;
+
+  @media ${devices.laptop('min')} {
+    display: none;
+  }
 `;
 
 const BurgerButton = styled.button`
