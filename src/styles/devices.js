@@ -9,8 +9,10 @@ export const devices = {
     `screen and (${mediaType}-width:${sizes.mobileL})`,
   tabletS: (mediaType = 'max') =>
     `screen and (${mediaType}-width:${sizes.tabletS})`,
-  tablet: (mediaType = 'max') =>
-    `screen and (${mediaType}-width:${sizes.tablet})`,
+  tabletM: (mediaType = 'max') =>
+    `screen and (${mediaType}-width:${sizes.tabletM})`,
+  tabletL: (mediaType = 'max') =>
+    `screen and (${mediaType}-width:${sizes.tabletL})`,
   laptop: (mediaType = 'max') =>
     `screen and (${mediaType}-width:${sizes.laptop})`,
   laptopM: (mediaType = 'max') =>

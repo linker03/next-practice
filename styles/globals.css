@@ -19,6 +19,12 @@ ul {
   padding: 0;
 }
 
+path,
+rect,
+circle {
+  transition: fill 0.3s ease-in-out;
+}
+
 .visually-hidden {
   position: absolute !important;
   margin: 0 !important;
