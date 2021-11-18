@@ -1,8 +1,15 @@
-import styled from 'styled-components';
-import Footer from '../components/footer/footer';
+import { Footer } from 'src/components/footer';
+import { Header } from 'src/components/header';
+import { MobileHeader } from 'src/components/header/components';
 
 const Home = () => {
-  return <Footer />;
+  return (
+    <>
+      <Header />
+      <Footer />
+      <MobileHeader />
+    </>
+  );
 };
 
 export default Home;
