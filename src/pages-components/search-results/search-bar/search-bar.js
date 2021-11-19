@@ -27,12 +27,7 @@ const SearchBar = () => {
 
 const Container = styled.div`
   position: relative;
-
-  display: flex;
-  align-items: center;
-
   padding: 10px 0;
-  max-width: 730px;
   width: 100%;
 `;
 
