@@ -2,11 +2,20 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { CheckIcon } from '../icons';
 
-const Checkbox = ({ label, defaultValue = false, className, isDisabled }) => {
+const Checkbox = ({
+  label,
+  defaultValue = false,
+  name,
+  className,
+  isDisabled,
+  onChange,
+}) => {
   const [checked, setChecked] = useState(defaultValue);
 
-  const onChange = () => {
-    setChecked((checked) => !checked);
+  const onChangeHandler = (event) => {
+    const target = event?.target;
+    setChecked(target?.checked);
+    onChange && onChange(target);
   };
 
   return (
@@ -15,8 +24,9 @@ const Checkbox = ({ label, defaultValue = false, className, isDisabled }) => {
       <HiddenInput
         className="visually-hidden"
         checked={checked}
-        onChange={onChange}
+        onChange={onChangeHandler}
         disabled={isDisabled}
+        name={name}
       />
       <StyledCheckBox checked={checked}>
         <CheckIcon />
