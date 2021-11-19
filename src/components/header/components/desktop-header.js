@@ -16,42 +16,42 @@ const DesktopHeader = () => {
       <Navigation>
         <LinksContainer>
           <LinksItem>
-            <Link href="/">
-              <a>DISCOVERY</a>
+            <Link passHref href="/">
+              <HeaderLink>DISCOVERY</HeaderLink>
             </Link>
             <MenuContainer>
               {discoveryMenu.map((el) => (
                 <MenuItem key={el.label}>
-                  <Link href={el.href}>
-                    <a>{el.label}</a>
+                  <Link passHref href={el.href}>
+                    <MenuLinks>{el.label}</MenuLinks>
                   </Link>
                 </MenuItem>
               ))}
             </MenuContainer>
           </LinksItem>
           <LinksItem>
-            <Link href="/">
-              <a>ENJOY</a>
+            <Link passHref href="/">
+              <HeaderLink>ENJOY</HeaderLink>
             </Link>
             <MenuContainer>
               {enjoyMenu.map((el) => (
                 <MenuItem key={el.label}>
-                  <Link href={el.href}>
-                    <a>{el.label}</a>
+                  <Link passHref href={el.href}>
+                    <MenuLinks>{el.label}</MenuLinks>
                   </Link>
                 </MenuItem>
               ))}
             </MenuContainer>
           </LinksItem>
           <LinksItem>
-            <Link href="/">
-              <a>TRIP IDEAS</a>
+            <Link passHref href="/">
+              <HeaderLink>TRIP IDEAS</HeaderLink>
             </Link>
             <MenuContainer>
               {tripIdeas.map((el) => (
                 <MenuItem key={el.label}>
-                  <Link href={el.href}>
-                    <a>{el.label}</a>
+                  <Link passHref href={el.href}>
+                    <MenuLinks>{el.label}</MenuLinks>
                   </Link>
                 </MenuItem>
               ))}
@@ -64,8 +64,8 @@ const DesktopHeader = () => {
             <MenuContainer>
               {localizationMenu.map((el) => (
                 <MenuItem key={el.label}>
-                  <Link href={el.href}>
-                    <a>{el.label}</a>
+                  <Link passHref href={el.href}>
+                    <MenuLinks>{el.label}</MenuLinks>
                   </Link>
                 </MenuItem>
               ))}
@@ -206,6 +206,16 @@ const MenuItem = styled.li`
   :hover {
     color: var(--primary-white);
   }
+`;
+
+const HeaderLink = styled.a`
+  font-family: 'adobe-garamond-pro', serif;
+  font-weight: 700;
+  font-size: 24px;
+`;
+
+const MenuLinks = styled.a`
+  font-weight: 400;
 `;
 
 export default DesktopHeader;
