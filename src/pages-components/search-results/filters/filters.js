@@ -8,6 +8,7 @@ import {
   seasonsFilter,
   recommendedTagsFilter,
 } from './filters-data';
+import { devices } from 'src/styles/devices';
 
 const changeFilter = (state, target) =>
   state.map((el) => {
@@ -56,7 +57,7 @@ const Filters = () => {
         </FilterItem>
         <FilterItem
           title="Seasons"
-          menuCSS={MenuCSS}
+          menuCSS={MenuCSS + RightMenu}
           cutLeft
           cutRight
           withStripes
@@ -82,7 +83,7 @@ const Filters = () => {
             />
           ))}
         </FilterItem>
-        <FilterItem title="Recommended Tags" menuCSS={TagsMenuCSS}>
+        <FilterItem title="Tags" menuCSS={TagsMenuCSS}>
           {tags.map((el) => (
             <CheckboxButton
               key={el.name}
@@ -94,11 +95,13 @@ const Filters = () => {
           ))}
         </FilterItem>
       </ButtonContainer>
-      <ResultForContainer>
-        <p>Showing results for: </p>
-        <StyledResults>{`"Summer, Action & Adventure"`}</StyledResults>
+      <FiltersBottomContainer>
+        <ResultForContainer>
+          <ResultForTitle>Showing results for: </ResultForTitle>
+          <StyledResults>{`"Summer, Action & Adventure"`}</StyledResults>
+        </ResultForContainer>
         <ResetButton>RESET</ResetButton>
-      </ResultForContainer>
+      </FiltersBottomContainer>
     </Container>
   );
 };
@@ -110,11 +113,20 @@ const MenuCSS = css`
   gap: 12px;
 `;
 
+const RightMenu = css`
+  right: 0;
+`;
+
 const TagsMenuCSS = css`
   width: 380px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  right: 0;
+
+  @media ${devices.tabletS()} {
+    width: 340px;
+  }
 `;
 
 const Container = styled.div`
@@ -132,19 +144,46 @@ const FilterBy = styled.p`
 const ButtonContainer = styled.div`
   display: flex;
   margin-bottom: 18px;
+
+  @media ${devices.tabletS('min')} {
+    div:last-child {
+      margin-left: auto;
+    }
+  }
+
+  @media ${devices.tabletS()} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 
-const ResultForContainer = styled.div`
+const FiltersBottomContainer = styled.div`
   display: flex;
+  align-items: flex-start;
+
   font-size: 16px;
   line-height: 30px;
   color: var(--primary-dark-gray);
 `;
 
+const ResultForContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
+
+const ResultForTitle = styled.p`
+  white-space: nowrap;
+`;
+
 const StyledResults = styled.p`
   font-family: 'adobe-garamond-pro', serif;
   font-style: italic;
-  margin-left: 10px;
 `;
 
 const ResetButton = styled.button`

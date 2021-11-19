@@ -1,7 +1,8 @@
 import { DropdownArrow } from 'src/components/icons';
 import styled, { css } from 'styled-components';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useOnClickOutside } from 'src/hooks';
+import { devices } from 'src/styles/devices';
 
 const FilterItem = ({
   children,
@@ -14,6 +15,13 @@ const FilterItem = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
+  const menuContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      console.log(menuContainerRef.current.getBoundingClientRect());
+    }
+  }, [isOpen]);
 
   const toggleOpen = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -33,9 +41,9 @@ const FilterItem = ({
         withStripes={withStripes}
       >
         {title}
-        <DropdownArrow />
+        <StyledIcon />
       </FilterButton>
-      <FiltersContainer $CSS={menuCSS} isOpen={isOpen}>
+      <FiltersContainer ref={menuContainerRef} $CSS={menuCSS} isOpen={isOpen}>
         {children}
       </FiltersContainer>
     </Container>
@@ -92,15 +100,23 @@ const FilterButton = styled.button`
 
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+
+  width: 100%;
 
   svg {
     stroke: var(--primary-pink);
   }
 
-  ${({ cutLeft }) => cutLeft && cutLeftCSS};
-  ${({ cutRight }) => cutRight && cutRightCSS};
-  ${({ withStripes }) => withStripes && withStripesCSS}
+  @media ${devices.tabletS('min')} {
+    ${({ cutLeft }) => cutLeft && cutLeftCSS};
+    ${({ cutRight }) => cutRight && cutRightCSS};
+    ${({ withStripes }) => withStripes && withStripesCSS}
+  }
+`;
+
+const StyledIcon = styled(DropdownArrow)`
+  margin-left: 10px;
 `;
 
 const FiltersContainer = styled.ul`
@@ -114,6 +130,7 @@ const FiltersContainer = styled.ul`
 
   position: absolute;
   top: 80%;
+  z-index: 10;
 
   transition: all 0.3s ease-in-out;
 
