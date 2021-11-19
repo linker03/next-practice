@@ -1,6 +1,6 @@
 import { DropdownArrow } from 'src/components/icons';
 import styled, { css } from 'styled-components';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useOnClickOutside } from 'src/hooks';
 import { devices } from 'src/styles/devices';
 
@@ -15,13 +15,6 @@ const FilterItem = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
-  const menuContainerRef = useRef(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      console.log(menuContainerRef.current.getBoundingClientRect());
-    }
-  }, [isOpen]);
 
   const toggleOpen = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -43,7 +36,7 @@ const FilterItem = ({
         {title}
         <StyledIcon />
       </FilterButton>
-      <FiltersContainer ref={menuContainerRef} $CSS={menuCSS} isOpen={isOpen}>
+      <FiltersContainer $CSS={menuCSS} isOpen={isOpen}>
         {children}
       </FiltersContainer>
     </Container>

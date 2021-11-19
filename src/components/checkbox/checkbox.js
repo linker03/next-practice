@@ -1,20 +1,16 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import { CheckIcon } from '../icons';
 
 const Checkbox = ({
   label,
-  defaultValue = false,
   name,
   className,
   isDisabled,
   onChange,
+  checked,
 }) => {
-  const [checked, setChecked] = useState(defaultValue);
-
   const onChangeHandler = (event) => {
     const target = event?.target;
-    setChecked(target?.checked);
     onChange && onChange(target);
   };
 

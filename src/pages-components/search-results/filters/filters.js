@@ -40,6 +40,13 @@ const Filters = () => {
     setTags((state) => changeFilter(state, target));
   };
 
+  const resetHandler = () => {
+    setCategories(categoriesFilter);
+    setSeasons(seasonsFilter);
+    setDestinations(destinationsFilter);
+    setTags(recommendedTagsFilter);
+  };
+
   return (
     <Container>
       <FilterBy>Filter By:</FilterBy>
@@ -50,7 +57,7 @@ const Filters = () => {
               key={el.name}
               label={el.label}
               name={el.name}
-              defaultValue={el.value}
+              checked={el.value}
               onChange={changeCategories}
             />
           ))}
@@ -67,7 +74,7 @@ const Filters = () => {
               key={el.name}
               label={el.label}
               name={el.name}
-              defaultValue={el.value}
+              checked={el.value}
               onChange={changeSeasons}
             />
           ))}
@@ -78,7 +85,7 @@ const Filters = () => {
               key={el.name}
               label={el.label}
               name={el.name}
-              defaultValue={el.value}
+              checked={el.value}
               onChange={changeDestinations}
             />
           ))}
@@ -89,7 +96,7 @@ const Filters = () => {
               key={el.name}
               label={el.label}
               name={el.name}
-              defaultValue={el.value}
+              checked={el.value}
               onChange={changeTags}
             />
           ))}
@@ -100,7 +107,7 @@ const Filters = () => {
           <ResultForTitle>Showing results for: </ResultForTitle>
           <StyledResults>{`"Summer, Action & Adventure"`}</StyledResults>
         </ResultForContainer>
-        <ResetButton>RESET</ResetButton>
+        <ResetButton onClick={resetHandler}>RESET</ResetButton>
       </FiltersBottomContainer>
     </Container>
   );
