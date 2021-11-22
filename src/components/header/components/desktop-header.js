@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
 import { Chat, Search, Localization } from 'src/components/icons';
 import {
   enjoyMenu,
@@ -8,12 +9,15 @@ import {
   localizationMenu,
 } from './menu-data';
 import { devices } from 'src/styles/devices';
+import { useWhiteMenu } from 'src/hooks';
 
-const DesktopHeader = () => {
+const DesktopHeader = ({ white }) => {
+  const isWhite = useWhiteMenu(white);
+
   return (
-    <Container>
+    <Container isWhite={isWhite}>
       <LogoContainer>logo</LogoContainer>
-      <Navigation>
+      <Navigation isWhite={isWhite}>
         <LinksContainer>
           <LinksItem>
             <Link passHref href="/">
@@ -59,7 +63,7 @@ const DesktopHeader = () => {
           </LinksItem>
         </LinksContainer>
         <IconsContainer>
-          <IconItem>
+          <IconItem isWhite={isWhite}>
             <Localization />
             <MenuContainer>
               {localizationMenu.map((el) => (
@@ -71,14 +75,14 @@ const DesktopHeader = () => {
               ))}
             </MenuContainer>
           </IconItem>
-          <IconItem>
+          <IconItem isWhite={isWhite}>
             <Link href="/">
               <a>
                 <Chat />
               </a>
             </Link>
           </IconItem>
-          <IconItem>
+          <IconItem isWhite={isWhite}>
             <Link href="/">
               <a>
                 <Search />
@@ -94,6 +98,16 @@ const DesktopHeader = () => {
 const Container = styled.header`
   display: flex;
   padding: 20px 30px;
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  background-color: ${({ isWhite }) =>
+    isWhite ? 'unset' : 'var(--primary-white)'};
+
+  transition: background-color 0.3s ease-out;
 
   @media ${devices.laptop()} {
     display: none;
@@ -113,6 +127,8 @@ const Navigation = styled.nav`
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  color: ${({ isWhite }) =>
+    isWhite ? 'var(--primary-white)' : 'var(--primary-dark-green)'};
 `;
 
 const LinksContainer = styled.ul`
@@ -126,7 +142,7 @@ const LinksItem = styled.li`
   position: relative;
   display: flex;
   align-items: center;
-  color: var(--primary-dark-green);
+  color: inherit;
   height: 100%;
   font-size: 24px;
   font-weight: 700;
@@ -158,7 +174,8 @@ const IconItem = styled.li`
   cursor: pointer;
 
   svg {
-    fill: var(--primary-dark-green);
+    fill: ${({ isWhite }) =>
+      isWhite ? 'var(--primary-white)' : 'var(--primary-dark-green)'};
   }
 
   :hover {

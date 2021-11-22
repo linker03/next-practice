@@ -1,9 +1,9 @@
 import { DesktopHeader, MobileHeader } from './components';
 
-const Header = () => {
+const Header = ({ white }) => {
   return (
     <>
-      <DesktopHeader />
+      <DesktopHeader white={white} />
       <MobileHeader />
     </>
   );
