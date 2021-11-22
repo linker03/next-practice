@@ -1,9 +1,9 @@
 import { devices } from 'src/styles/devices';
 import styled from 'styled-components';
 
-const TextWithBackground = () => {
+const TextWithBackground = ({ className }) => {
   return (
-    <Container>
+    <Container className={className}>
       <Text>
         7 words lorem ipsum <br /> dolor consectetur <br /> adipiscing
       </Text>
