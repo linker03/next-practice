@@ -4,7 +4,7 @@ const Header = ({ white }) => {
   return (
     <>
       <DesktopHeader white={white} />
-      <MobileHeader />
+      <MobileHeader white={white} />
     </>
   );
 };
