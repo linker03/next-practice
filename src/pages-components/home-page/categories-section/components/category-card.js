@@ -34,9 +34,10 @@ const CardContainer = styled.li`
     img {
       transform: scale(1.1);
     }
-
-    h3 {
-      color: var(--primary-pink);
+    div {
+      :after {
+        background: rgba(208, 130, 108, 0.33);
+      }
     }
   }
 `;
@@ -49,12 +50,6 @@ const StyledLink = styled.a`
 const ImageContainer = styled.div`
   position: relative;
   display: block;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
 
   :after {
     content: '';
@@ -72,6 +67,7 @@ const ImageContainer = styled.div`
       rgba(0, 0, 0, 0) 50%,
       rgba(0, 0, 0, 0) 100%
     );
+    transition: all 1s ease-out;
   }
 `;
 
