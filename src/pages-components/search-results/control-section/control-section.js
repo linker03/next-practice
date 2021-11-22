@@ -12,7 +12,7 @@ const ControlSection = () => {
 };
 
 const SectionContainer = styled.section`
-  padding: 30px 16px;
+  padding: 130px 16px 30px 16px;
   max-width: 730px;
 
   display: flex;

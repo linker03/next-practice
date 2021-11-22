@@ -12,7 +12,8 @@ import { devices } from 'src/styles/devices';
 import { useWhiteMenu } from 'src/hooks';
 
 const DesktopHeader = ({ white }) => {
-  const isWhite = useWhiteMenu(white);
+  const whiteTheme = useWhiteMenu(white);
+  const isWhite = white ? whiteTheme : false;
 
   return (
     <Container isWhite={isWhite}>

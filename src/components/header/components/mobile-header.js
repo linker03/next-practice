@@ -14,7 +14,8 @@ const MobileHeader = ({ white }) => {
     setBurgerOpen(!burgerOpen);
   };
 
-  const isWhite = useWhiteMenu(white);
+  const whiteTheme = useWhiteMenu(white);
+  const isWhite = white ? whiteTheme : false;
 
   return (
     <Container isWhite={isWhite}>
