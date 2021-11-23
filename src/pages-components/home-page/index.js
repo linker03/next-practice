@@ -4,3 +4,4 @@ export { CategoriesSection } from './categories-section';
 export { MapSection } from './map-section';
 export { TripIdeasSection } from './trip-ideas-section';
 export { UpdatesSection } from './updates-section';
+export { BannerSection } from './banner-section';
