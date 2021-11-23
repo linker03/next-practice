@@ -16,8 +16,8 @@ const Card = ({ article, image, title, text, location }) => {
           layout="responsive"
         />
       </ImageContainer>
-      <CardTitle>{title}</CardTitle>
-      <CardText>{text}</CardText>
+      {!!title && <CardTitle>{title}</CardTitle>}
+      {!!text && <CardText>{text}</CardText>}
       {!!location && (
         <LocationMark>
           <StyledIcon />
