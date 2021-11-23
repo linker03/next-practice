@@ -1,12 +1,27 @@
-import Link from 'next/link';
+import { Article, TextWithBackground } from 'src/components';
 import { BaseLayout } from 'src/layout';
-import { HeroSection } from 'src/pages-components/home-page';
+import {
+  BannerSection,
+  CategoriesSection,
+  EmergencySection,
+  HeroSection,
+  MapSection,
+  TripIdeasSection,
+  UpdatesSection,
+} from 'src/pages-components/home-page';
 
 const Home = () => {
   return (
-    <BaseLayout desktopTransparency>
+    <BaseLayout white>
       <HeroSection />
-      <div style={{ height: 4000 }}></div>
+      <EmergencySection />
+      <CategoriesSection />
+      <TextWithBackground />
+      <Article />
+      <MapSection />
+      <TripIdeasSection />
+      <UpdatesSection />
+      <BannerSection />
     </BaseLayout>
   );
 };
