@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import { MarkerIcon } from '../icons';
+import { ExternalLinkIcon, MarkerIcon } from '../icons';
 
-const Card = ({ article, image, title, text, location }) => {
+const Card = ({
+  article,
+  image,
+  title,
+  text,
+  location,
+  date,
+  isExternalLink = false,
+}) => {
   return (
     <CardContainer>
       {article && <ArticleMark>Article</ArticleMark>}
@@ -16,7 +24,13 @@ const Card = ({ article, image, title, text, location }) => {
           layout="responsive"
         />
       </ImageContainer>
-      {!!title && <CardTitle>{title}</CardTitle>}
+      {!!date && <CardText>{date}</CardText>}
+      {!!title && !isExternalLink && <CardTitle>{title}</CardTitle>}
+      {!!title && isExternalLink && (
+        <CardTitle>
+          {title} <StyledExternalLinkIcon />
+        </CardTitle>
+      )}
       {!!text && <CardText>{text}</CardText>}
       {!!location && (
         <LocationMark>
@@ -89,4 +103,8 @@ const ArticleMark = styled.p`
   color: var(--primary-white);
 `;
 
+const StyledExternalLinkIcon = styled(ExternalLinkIcon)`
+  fill: var(--primary-pink);
+  display: inline-block;
+`;
 export default Card;
