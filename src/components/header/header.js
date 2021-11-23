@@ -1,10 +1,10 @@
 import { DesktopHeader, MobileHeader } from './components';
 
-const Header = () => {
+const Header = ({ white }) => {
   return (
     <>
-      <DesktopHeader />
-      <MobileHeader />
+      <DesktopHeader white={white} />
+      <MobileHeader white={white} />
     </>
   );
 };

@@ -5,29 +5,33 @@ import { BurgerIcon } from 'src/components/icons';
 import { Chat, Search } from 'src/components/icons';
 import BurgerMenu from './burger-menu';
 import { devices } from 'src/styles/devices';
+import { useWhiteMenu } from 'src/hooks';
 
-const MobileHeader = () => {
+const MobileHeader = ({ white }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
 
   const burgerToggle = () => {
     setBurgerOpen(!burgerOpen);
   };
 
+  const whiteTheme = useWhiteMenu(white);
+  const isWhite = white ? whiteTheme : false;
+
   return (
-    <Container>
-      <BurgerButton onClick={burgerToggle}>
+    <Container isWhite={isWhite}>
+      <BurgerButton onClick={burgerToggle} isWhite={isWhite}>
         <BurgerIcon />
       </BurgerButton>
       <LogoContainer>logo</LogoContainer>
       <IconsContainer>
-        <IconItem>
+        <IconItem isWhite={isWhite}>
           <Link href="/">
             <a>
               <Chat />
             </a>
           </Link>
         </IconItem>
-        <IconItem>
+        <IconItem isWhite={isWhite}>
           <Link href="/">
             <a>
               <Search />
@@ -43,7 +47,14 @@ const MobileHeader = () => {
 const Container = styled.header`
   display: flex;
   padding: 20px;
-  position: relative;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+
+  background-color: ${({ isWhite }) =>
+    isWhite ? 'unset' : 'var(--primary-white)'};
+
+  transition: background-color 0.3s ease-out;
 
   @media ${devices.laptop('min')} {
     display: none;
@@ -52,7 +63,8 @@ const Container = styled.header`
 
 const BurgerButton = styled.button`
   svg {
-    fill: var(--primary-dark-green);
+    fill: ${({ isWhite }) =>
+      isWhite ? 'var(--primary-white)' : 'var(--primary-dark-green)'};
   }
 `;
 
@@ -85,7 +97,8 @@ const IconItem = styled.li`
   align-items: center;
 
   svg {
-    fill: var(--primary-dark-green);
+    fill: ${({ isWhite }) =>
+      isWhite ? 'var(--primary-white)' : 'var(--primary-dark-green)'};
   }
 `;
 
