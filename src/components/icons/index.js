@@ -11,3 +11,4 @@ export { default as ArrowRight } from './arrow-right';
 export { default as DropdownArrow } from './dropdown-arrow';
 export { default as CheckIcon } from './check-icon';
 export { default as MarkerIcon } from './marker-icon';
+export { default as ExternalLinkIcon } from './external-link-icon';
