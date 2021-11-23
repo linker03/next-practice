@@ -1,4 +1,4 @@
-import { Header, Footer } from 'src/components';
+import { Header, Footer, PageTopButton } from 'src/components';
 
 const BaseLayout = ({ children, white }) => {
   return (
@@ -6,6 +6,7 @@ const BaseLayout = ({ children, white }) => {
       <Header white={white} />
       {children}
       <Footer />
+      <PageTopButton />
     </main>
   );
 };

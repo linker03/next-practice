@@ -5,3 +5,4 @@ export { CheckboxButton } from './checkbox-button';
 export { Card } from './card';
 export { TextWithBackground } from './text-with-background';
 export { Article } from './article';
+export { PageTopButton } from './page-top-button';
