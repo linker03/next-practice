@@ -64,6 +64,9 @@ const TextContainer = styled.div`
   max-width: 50%;
   @media ${devices.tabletM()} {
     width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    margin: 0;
   }
 `;
 

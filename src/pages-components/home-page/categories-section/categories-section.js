@@ -81,9 +81,11 @@ const SectionTitle = styled.h2`
 const CategoriesContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 80px;
 
   @media ${devices.tabletM()} {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
   }
 `;
 
