@@ -3,10 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Facebook, Instagram, Youtube } from '../icons';
 import { devices } from '../../styles/devices';
+import { Breadcrumbs } from '../breadcrumbs';
 
 const Footer = () => {
   return (
     <Container>
+      <Breadcrumbs />
       <LinksContainer>
         <LogoContainer>
           <Image
