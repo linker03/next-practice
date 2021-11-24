@@ -1,0 +1,15 @@
+image: nikolaik/python-nodejs
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: deploy-to-s3
+          caches:
+            - node
+          deployment: staging
+          script: # Modify the commands below to build your repository.
+            - npm install
+            - npm run build
+            - pip install awscli
+            - aws s3 cp ./dist s3://${S3_BUCKET_NAME} --recursive
