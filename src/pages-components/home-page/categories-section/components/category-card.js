@@ -16,6 +16,7 @@ const CategoryCard = ({ image, title, href }) => {
               height={500}
               layout="responsive"
               objectFit="cover"
+              sizes="50vw"
             />
           </ImageContainer>
           <CardTitle>{title}</CardTitle>

@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { devices } from 'src/styles/devices';
+import heroImage from 'public/static/images/hero-2x.webp';
 
 const HeroSection = () => {
   return (
     <SectionContainer>
       <ImageContainer>
         <Image
-          src="/static/images/home-hero.jpg"
+          src={heroImage}
           alt="hero-image"
-          width={1280}
-          height={960}
           layout="fill"
           objectFit="cover"
+          placeholder="blur"
         />
       </ImageContainer>
       <HeroTitle>

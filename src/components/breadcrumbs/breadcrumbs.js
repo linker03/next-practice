@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import { Fragment } from 'react';
 
 const tempCrumbs = [
   { id: '0', label: 'Home', href: '/', active: false },
@@ -11,14 +12,14 @@ const Breadcrumbs = () => {
   return (
     <Container>
       {tempCrumbs.map((crumb) => (
-        <>
-          <Link href={crumb.href} passHref key={crumb.id}>
+        <Fragment key={crumb.id}>
+          <Link href={crumb.href} passHref>
             <Crumb active={crumb.active} disabled={crumb.active}>
               {crumb.label}
             </Crumb>
           </Link>
           {!crumb.active && '  >'}
-        </>
+        </Fragment>
       ))}
     </Container>
   );
